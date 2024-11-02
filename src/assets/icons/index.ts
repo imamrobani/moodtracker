@@ -1,0 +1,10 @@
+export {default as icHappy} from './ic_happy.svg';
+export {default as icNeutral} from './ic_neutral.svg';
+export {default as icSad} from './ic_sad.svg';
+export {default as icStressed} from './ic_stressed.svg';
+export {default as icTabHomeActive} from './ic_tab_home_active.svg';
+export {default as icTabHomeInactive} from './ic_tab_home_inactive.svg';
+export {default as icTabSettingsActive} from './ic_tab_settings_active.svg';
+export {default as icTabSettingsInactive} from './ic_tab_settings_inactive.svg';
+export {default as icTabStatisticsActive} from './ic_tab_statistics_active.svg';
+export {default as icTabStatisticsInactive} from './ic_tab_statistics_inactive.svg';
