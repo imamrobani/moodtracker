@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text as TextRN, TextProps, StyleSheet, TextStyle} from 'react-native';
 import {Colors, Typography} from '@constants';
+import {scale} from '@utils';
 
 export type FontTypeStyle = keyof typeof Typography;
 export type ColorType = keyof typeof Colors | (string & {});
@@ -9,7 +10,7 @@ interface CustomTextProps extends TextProps {
   type?: FontTypeStyle;
   color?: ColorType;
   fontFamily?: string;
-  fontSize?: number;
+  size?: number;
   fontStyle?: TextStyle['fontStyle'];
   fontWeight?: TextStyle['fontWeight'];
   letterSpacing?: number;
@@ -32,7 +33,7 @@ const Text: React.FC<CustomTextProps> = ({
   type,
   color,
   fontFamily,
-  fontSize,
+  size = 14,
   fontStyle,
   fontWeight,
   letterSpacing,
@@ -79,7 +80,7 @@ const Text: React.FC<CustomTextProps> = ({
     text: {
       color,
       fontFamily,
-      fontSize,
+      fontSize: scale(size),
       fontStyle,
       fontWeight,
       letterSpacing,

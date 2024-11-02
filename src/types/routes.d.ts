@@ -1,5 +1,6 @@
 type RootStackParamList = {
   Splash: undefined;
+  MainApp: undefined;
   Home: undefined;
   Statistics: undefined;
   Settings: undefined;
