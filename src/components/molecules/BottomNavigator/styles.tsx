@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
   activeTab: {
     fontSize: scale(12),
     fontFamily: Fonts.POPPINS_REGULAR,
-    color: 'blue',
+    color: Colors.BLUE,
   },
   inActiveTab: {
     fontSize: scale(12),
