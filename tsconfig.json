@@ -8,6 +8,10 @@
       "@assets": ["src/assets"],
       "@components": ["src/components"],
       "@constants": ["src/constants"],
+      "@hooks": ["src/hooks"],
+      "@libraries": ["src/libraries"],
+      "@reduxhooks": ["src/redux/hooks.ts"],
+      "@slice/*": ["src/redux/slice/*"],
       "@routes": ["src/routes"],
       "@screens": ["src/screens"],
       "@utils": ["src/utils"]
