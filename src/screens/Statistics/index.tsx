@@ -6,44 +6,21 @@ import {View, Text, CardMood, Icon} from '@components';
 
 // styles
 import styles from './styles';
-import {Colors} from '@constants';
 
 // utils
 import {scale} from '@utils';
+import {useAppSelector} from '@reduxhooks';
 
 const Statistics = () => {
-  const isPieChart = true;
+  const moods = useAppSelector(state => state.moodReducer.moods);
+  const typeChart = useAppSelector(state => state.settingReducer.typeChart);
 
-  const data = [
-    {
-      type: 'happy',
-      value: 20,
-      color: Colors.TEXT_HAPPY,
-      frontColor: Colors.TEXT_HAPPY,
-      topLabelComponent: () => renderIcon('happy'),
-    },
-    {
-      type: 'neutral',
-      value: 10,
-      color: Colors.TEXT_NEUTRAL,
-      frontColor: Colors.TEXT_NEUTRAL,
-      topLabelComponent: () => renderIcon('neutral'),
-    },
-    {
-      type: 'sad',
-      value: 20,
-      color: Colors.TEXT_SAD,
-      frontColor: Colors.TEXT_SAD,
-      topLabelComponent: () => renderIcon('sad'),
-    },
-    {
-      type: 'stress',
-      value: 40,
-      color: Colors.TEXT_STRESSED,
-      frontColor: Colors.TEXT_STRESSED,
-      topLabelComponent: () => renderIcon('stress'),
-    },
-  ];
+  const barChartData = moods.map(mood => ({
+    ...mood,
+    topLabelComponent: () => renderIcon(mood.type),
+  }));
+
+  const isPieChart = typeChart === 'pie';
 
   const renderIcon = (type: string) => {
     switch (type) {
@@ -66,10 +43,10 @@ const Statistics = () => {
       <View gap={24}>
         <View style={styles.chartContainer}>
           {isPieChart ? (
-            <PieChart data={data} radius={scale(186 / 2)} />
+            <PieChart data={moods} radius={scale(186 / 2)} />
           ) : (
             <BarChart
-              data={data}
+              data={barChartData}
               barWidth={scale(70)}
               isAnimated
               barBorderTopLeftRadius={10}
@@ -81,11 +58,11 @@ const Statistics = () => {
           )}
         </View>
         <View row flex={1} flexWrap="wrap" gap={16}>
-          {data.map((item, index) => (
+          {moods.map((item, index) => (
             <CardMood
               key={index}
               type={item.type as MoodType}
-              value={item.value}
+              value={item.percentage}
             />
           ))}
         </View>

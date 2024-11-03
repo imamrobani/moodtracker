@@ -1,5 +1,7 @@
 export {default as icHappy} from './ic_happy.svg';
 export {default as icNeutral} from './ic_neutral.svg';
+export {default as icRadioActive} from './ic_radio_active.svg';
+export {default as icRadioInactive} from './ic_radio_inactive.svg';
 export {default as icSad} from './ic_sad.svg';
 export {default as icStressed} from './ic_stressed.svg';
 export {default as icTabHomeActive} from './ic_tab_home_active.svg';

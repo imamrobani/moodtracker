@@ -1,6 +1,8 @@
 type IconName =
   | 'icHappy'
   | 'icNeutral'
+  | 'icRadioActive'
+  | 'icRadioInactive'
   | 'icSad'
   | 'icStressed'
   | 'icTabHomeActive'

@@ -1,10 +1,16 @@
+import {scale} from '@/utils';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
+  page: {
     flex: 1,
-    justifyContent: 'center',
+    padding: scale(16),
+    gap: 16,
+  },
+  radioContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
+    gap: 16,
   },
 });
 

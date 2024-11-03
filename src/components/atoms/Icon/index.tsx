@@ -4,6 +4,8 @@ import {scale} from '@utils';
 import {
   icHappy,
   icNeutral,
+  icRadioActive,
+  icRadioInactive,
   icSad,
   icStressed,
   icTabHomeActive,
@@ -29,6 +31,10 @@ const getSource = (name: IconName) => {
       return icHappy;
     case 'icNeutral':
       return icNeutral;
+    case 'icRadioActive':
+      return icRadioActive;
+    case 'icRadioInactive':
+      return icRadioInactive;
     case 'icSad':
       return icSad;
     case 'icStressed':
