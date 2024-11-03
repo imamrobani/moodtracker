@@ -4,7 +4,7 @@ import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 // component
-import {Icon, Text, View} from 'src/components/atoms';
+import {Icon, Text, View} from '@/components/atoms';
 
 // styles
 import styles from './styles';

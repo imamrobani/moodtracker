@@ -1,6 +1,7 @@
 export default {
   BLACK: '#000000',
   BLUE: '#007AFF',
+  GRAY_900: '#111928',
   MOOD_HAPPY: '#FFFAE4',
   MOOD_NEUTRAL: '#E8FEFF',
   MOOD_SAD: '#E9EFFF',

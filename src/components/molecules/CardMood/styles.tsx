@@ -1,20 +1,19 @@
 import {StyleSheet} from 'react-native';
-import {scale} from '@utils';
-import {Colors} from '@constants';
+import {deviceWidth, scale} from '@/utils';
+import {Colors} from '@/constants';
 
 const styles = StyleSheet.create({
-  page: {
-    flex: 1,
-    padding: 16,
-    gap: 16,
-  },
-  chartContainer: {
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: Colors.WHITE,
     elevation: 3,
+    backgroundColor: 'white',
     borderRadius: 8,
-    height: scale(234),
+    height: scale(52),
+    width: deviceWidth / 2 - 16 - 8,
+    paddingHorizontal: scale(12),
+    paddingVertical: scale(16),
     shadowColor: Colors.BLACK,
     shadowOffset: {
       width: 0,
