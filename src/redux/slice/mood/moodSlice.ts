@@ -1,5 +1,18 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {Colors} from '@constants';
+import {getDataStorage, storeDataStorage} from '@libraries';
+
+export const getMoods = createAsyncThunk(
+  'mood/fetch-mood',
+  async (_, {rejectWithValue}) => {
+    const mood = getDataStorage('mood');
+    if (mood) {
+      return mood;
+    } else {
+      return rejectWithValue('Error get moods');
+    }
+  },
+);
 
 type Mood = {
   type: MoodType;
@@ -13,6 +26,7 @@ type Mood = {
 
 type MoodState = {
   moods: Mood[];
+  error: any;
 };
 
 const initialState: MoodState = {
@@ -50,12 +64,14 @@ const initialState: MoodState = {
       timestamp: '',
     },
   ],
+  error: {},
 };
 
 export const moodSlice = createSlice({
   name: 'mood',
   initialState,
   reducers: {
+    resetMood: () => initialState,
     setUpdateMood: (state, action: PayloadAction<MoodType>) => {
       const index = state.moods.findIndex(mood => mood.type === action.payload);
       if (index !== -1) {
@@ -73,9 +89,20 @@ export const moodSlice = createSlice({
           mood.percentage = Math.round((mood.value / totalValue) * 100);
         });
       }
+
+      // save to storage
+      storeDataStorage('mood', state.moods);
     },
+  },
+  extraReducers: builder => {
+    builder.addCase(getMoods.fulfilled, (state, action) => {
+      state.moods = action.payload;
+    });
+    builder.addCase(getMoods.rejected, (state, action) => {
+      state.error = action.payload;
+    });
   },
 });
 
-export const {setUpdateMood} = moodSlice.actions;
+export const {setUpdateMood, resetMood} = moodSlice.actions;
 export default moodSlice.reducer;

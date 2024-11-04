@@ -9,15 +9,15 @@ const Splash: React.FC<Props> = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
       navigation.replace('MainApp');
-    }, 2500);
+    }, 1500);
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text size={24} type="semiBold">
-        Splash
+      <Text size={24} type="semiBold" color="GRAY_900">
+        Mood Tracker
       </Text>
-      <Icon name="icHappy" />
+      <Icon name="icHappy" size={40} />
     </View>
   );
 };

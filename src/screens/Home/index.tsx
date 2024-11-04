@@ -1,14 +1,26 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './styles';
+
+// components
 import {ButtonMood, Text, View} from '@components';
+
+// store
 import {useAppDispatch} from '@reduxhooks';
-import {setUpdateMood} from '@/redux/slice/mood/moodSlice';
+import {getMoods, setUpdateMood} from '@slice/mood/moodSlice';
+import {getTypeChart} from '@slice/setting/settingSlice';
+
+// utils
 import {showToastNative} from '@/utils';
 
 const DATA: MoodType[] = ['happy', 'neutral', 'sad', 'stress'];
 
 const Home = () => {
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getTypeChart());
+    dispatch(getMoods());
+  }, []);
 
   const handlePress = (type: MoodType) => {
     dispatch(setUpdateMood(type));

@@ -35,28 +35,42 @@ const Statistics = () => {
     }
   };
 
+  const renderChart = () => {
+    if (moods.every(mood => mood.percentage === 0)) {
+      return (
+        <Text center size={16} type="semiBold" color="TEXT_SAD">
+          {'No data,\nplease select your mood'}
+        </Text>
+      );
+    }
+
+    return (
+      <>
+        {isPieChart ? (
+          <PieChart data={moods} radius={scale(186 / 2)} />
+        ) : (
+          <BarChart
+            data={barChartData}
+            barWidth={scale(70)}
+            isAnimated
+            barBorderTopLeftRadius={10}
+            barBorderTopRightRadius={10}
+            spacing={0}
+            hideAxesAndRules={true}
+            barMarginBottom={8}
+          />
+        )}
+      </>
+    );
+  };
+
   return (
     <View style={styles.page}>
       <Text center size={20} type="semiBold">
         Statistics
       </Text>
       <View gap={24}>
-        <View style={styles.chartContainer}>
-          {isPieChart ? (
-            <PieChart data={moods} radius={scale(186 / 2)} />
-          ) : (
-            <BarChart
-              data={barChartData}
-              barWidth={scale(70)}
-              isAnimated
-              barBorderTopLeftRadius={10}
-              barBorderTopRightRadius={10}
-              spacing={0}
-              hideAxesAndRules={true}
-              barMarginBottom={8}
-            />
-          )}
-        </View>
+        <View style={styles.chartContainer}>{renderChart()}</View>
         <View row flex={1} flexWrap="wrap" gap={16}>
           {moods.map((item, index) => (
             <CardMood
