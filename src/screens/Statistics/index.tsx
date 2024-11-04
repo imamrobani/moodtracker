@@ -66,9 +66,6 @@ const Statistics = () => {
 
   return (
     <View style={styles.page}>
-      {/* <Text center size={20} type="semiBold">
-        Statistics
-      </Text> */}
       <Header label="Statistics" />
       <View gap={24}>
         <View style={styles.chartContainer}>{renderChart()}</View>
