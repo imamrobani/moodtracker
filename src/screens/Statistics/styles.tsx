@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
   page: {
     flex: 1,
     padding: 16,
-    gap: 16,
   },
   chartContainer: {
     alignItems: 'center',

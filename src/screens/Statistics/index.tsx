@@ -2,7 +2,7 @@ import React from 'react';
 import {PieChart, BarChart} from 'react-native-gifted-charts';
 
 // components
-import {View, Text, CardMood, Icon} from '@components';
+import {View, Text, CardMood, Icon, Header} from '@components';
 
 // styles
 import styles from './styles';
@@ -66,9 +66,10 @@ const Statistics = () => {
 
   return (
     <View style={styles.page}>
-      <Text center size={20} type="semiBold">
+      {/* <Text center size={20} type="semiBold">
         Statistics
-      </Text>
+      </Text> */}
+      <Header label="Statistics" />
       <View gap={24}>
         <View style={styles.chartContainer}>{renderChart()}</View>
         <View row flex={1} flexWrap="wrap" gap={16}>

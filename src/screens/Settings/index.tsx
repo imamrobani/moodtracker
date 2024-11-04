@@ -2,7 +2,7 @@ import React from 'react';
 import {TouchableOpacity} from 'react-native';
 
 // components
-import {View, Text, Icon} from '@components';
+import {View, Text, Icon, Header} from '@components';
 
 // styles
 import styles from './styles';
@@ -38,10 +38,7 @@ const Settings = () => {
 
   return (
     <View style={styles.page}>
-      <Text center size={20} type="semiBold">
-        Settings
-      </Text>
-
+      <Header label="Settings" />
       <View gap={8}>
         <Text type="semiBold" size={16}>
           Select Chart

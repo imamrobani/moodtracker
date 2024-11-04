@@ -50,7 +50,7 @@ const ButtonMood: React.FC<Props> = ({type, onPress}) => {
 
   return (
     <TouchableOpacity
-      activeOpacity={0.8}
+      activeOpacity={0.7}
       style={[styles.container, {backgroundColor: getMoodStyle().bgColor}]}
       onPress={onPress}>
       <Icon name={getMoodStyle().iconName} />

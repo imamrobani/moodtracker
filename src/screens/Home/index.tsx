@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import styles from './styles';
 
 // components
-import {ButtonMood, Text, View} from '@components';
+import {ButtonMood, Header, View} from '@components';
 
 // store
 import {useAppDispatch} from '@reduxhooks';
@@ -29,9 +29,7 @@ const Home = () => {
 
   return (
     <View style={styles.page}>
-      <Text type="semiBold" size={20}>
-        How are you feeling right now?
-      </Text>
+      <Header label="How are you feeling right now?" />
       <View gap={16}>
         {DATA.map((item, index) => (
           <ButtonMood
